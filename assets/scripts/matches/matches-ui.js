@@ -17,7 +17,7 @@ const getMatchesSuccess = (data) => {
       {
         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td></tr>";
-        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "'>Update</button>" + "</td>";
+        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' + data-match-opponent='" + app.matches[i].opponent + "'>Update</button>" + "</td>";
       }
 
       matchHistory = matchHistory + "</table>";

@@ -21,6 +21,13 @@ const onGetAllMatches = function () {
 const onOpponentUpdateMatch = (event)=> {
   event.preventDefault();
   let matchIdToUpdate = $(event.target).data("match-id");
+  let matt = $(event.target).data("match-opponent");
+  console.log("this is matchIdToUpdateOpponent:" + matt);
+  if (matt !== "")
+    {
+      alert("user already has opponent");
+      return
+    }
   let updatedOpponentName = $("#update-opponent-name").val();
   api.opponentUpdateMatch(matchIdToUpdate, updatedOpponentName)
   .done(onGetAllMatches)
