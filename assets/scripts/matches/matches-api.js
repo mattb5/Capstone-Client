@@ -15,9 +15,13 @@ const opponentUpdateMatch = function (matchIdToUpdate, updatedOpponentName) {
   {
     url: app.host + '/matches-update/' + matchIdToUpdate,
     method: 'PATCH',
+    headers: {
+     Authorization: 'Token token=' + app.user.token,
+   },
     data :{
             "match": {
               "opponent": updatedOpponentName,
+              "opponentID": app.user._id
               }
             }
   }
