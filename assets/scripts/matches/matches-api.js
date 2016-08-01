@@ -9,7 +9,36 @@ const getAllMatches = () => {
     method: "GET",
   });
 };
-//
+
+const getUserOwnedMatches = () => {
+  return $.ajax({
+    url: app.host + '/owner_matches/' + app.user._id,
+    headers: {
+     Authorization: 'Token token=' + app.user.token,
+   },
+    method: "GET",
+  });
+};
+
+
+const createMatch = function (time, hostUser) {
+  return $.ajax(
+  {
+    url: app.host + '/matches',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data :{
+          "match": {
+            "time": time,
+            "hostUser" : hostUser,
+            "opponent": ""
+            }
+          }
+  });
+};
+
 const opponentUpdateMatch = function (matchIdToUpdate, updatedOpponentName) {
   return $.ajax(
   {
@@ -28,7 +57,20 @@ const opponentUpdateMatch = function (matchIdToUpdate, updatedOpponentName) {
   );
 };
 
+const getNonHostedMatches = () => {
+  return $.ajax({
+    url: app.host + '/opponent_matches/' + app.user._id,
+    headers: {
+     Authorization: 'Token token=' + app.user.token,
+   },
+    method: "GET",
+  });
+};
+
 module.exports = {
   getAllMatches,
+  createMatch,
   opponentUpdateMatch,
+  getUserOwnedMatches,
+  getNonHostedMatches,
 };

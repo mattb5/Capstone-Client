@@ -10,48 +10,79 @@
       <h1>Tennis Matchrr</h1>
 
       <form id="sign-up">
-              <fieldset>
-                <legend>Sign up!</legend>
-                <input type ="text" name= "credentials[email]" placeholder="email">
-                <input type ="password" name= "credentials[password]" placeholder="password">
-                <input type ="password" name= "credentials[password_confirmation]" placeholder="password confirmation">
-                <input type="submit" name="submit" value="Sign up!">
-              </fieldset>
-            </form>
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type ="text" name= "credentials[email]" placeholder="email">
+          <input type ="password" name= "credentials[password]" placeholder="password">
+          <input type ="password" name= "credentials[password_confirmation]" placeholder="password confirmation">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
 
-            <form id="sign-in">
-              <fieldset>
-                <legend>Sign in!</legend>
-                <input type ="text" name= "credentials[email]" placeholder="email">
-                <input type ="password" name= "credentials[password]" placeholder="password">
-                <input type="submit" name="submit" value="Sign in!">
-              </fieldset>
-            </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type ="text" name= "credentials[email]" placeholder="email">
+          <input type ="password" name= "credentials[password]" placeholder="password">
+          <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+      </form>
 
-            <form id="sign-out">
-              <fieldset>
-                <legend>Sign out!</legend>
-                <input class="sign-out" type="submit" name="submit" value="Sign out!">
-              </fieldset>
-            </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out!</legend>
+          <input class="sign-out" type="submit" name="submit" value="Sign out!">
+        </fieldset>
+      </form>
 
-            <form id="change-password">
-              <fieldset>
-                <legend>Change password!!</legend>
-                <input type ="text" name= "passwords[old]" placeholder="old password">
-                <input type ="password" name= "passwords[new]" placeholder="new password">
-                <input type="submit" name="submit" value="Change Password!!!!!!!!!!!!!!!!">
-              </fieldset>
-            </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change password!!</legend>
+          <input type ="text" name= "passwords[old]" placeholder="old password">
+          <input type ="password" name= "passwords[new]" placeholder="new password">
+          <input type="submit" name="submit" value="Change Password!!!!!!!!!!!!!!!!">
+        </fieldset>
+      </form>
 
-            <p id="matches"> </p>
+      <form id="create-match">
+        <fieldset>
+          <legend>Create Match </legend>
+          <input type ="text" id="match-time" placeholder="Time">
+          <input type ="text" id="host-name" placeholder="Host Name">
+          <input class="create-match" type="submit" name="submit" value="Create Match">
+        </fieldset>
+      </form>
 
-            <form id="patch-match">
-            <fieldset>
-              <legend>Update Match Opponent </legend>
-              <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
-            </fieldset>
-          </form>
+      <p id="matches"> </p>
+
+      <form id="patch-match">
+        <fieldset>
+          <legend>Update Match Opponent </legend>
+          <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
+        </fieldset>
+      </form>
+
+    <!-- <h2> User Owned Matches </h2> -->
+
+      <p id="matches"> </p>
+
+    <form id="get-user-owned-matches">
+      <fieldset>
+        <legend>Get User Created Matches</legend>
+        <input class="get-user-owned-matches" type="submit" name="submit" value="Get User Matches">
+      </fieldset>
+    </form>
+
+    <p id="user-owned-matches"> </p>
+
+    <form id="get-non-hosted-matches">
+      <fieldset>
+        <legend>Get Non-Hosted Matches</legend>
+        <input class="get-non-hosted-matches" type="submit" name="submit" value="Get User Matches">
+      </fieldset>
+    </form>
+
+    <p id="non-hosted-matches"> </p>
 
     </body>
 </html>
