@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./matches-api.js');
 const ui = require('./matches-ui.js');
+const app = require('../app.js');
 
 const onGetAllMatches = function () {
   console.log("this is get all matches");
@@ -21,9 +22,24 @@ const onCreateMatch = (event) => {
 
 const onOpponentUpdateMatch = (event) => {
   event.preventDefault();
+
+  let matchOwner = $(event.target).data("match-owner-id");
+  // console.log("this is matchOwner:", matchOwner);
+
   let matchIdToUpdate = $(event.target).data("match-id");
-  let matt = $(event.target).data("match-opponent");
-  if (matt !== "")
+  // console.log("this is matchIdToUpdate,", matchIdToUpdate)
+
+  // if (matchIdToUpdate ===)
+  let matchOpponentId = $(event.target).data("match-opponent-id");
+  // console.log("this is matt:",  matchOpponentId);
+  console.log("this is the owner ID", app.matches[0]._owner);
+  if (matchOwner === app.matches[0]._owner)
+    {
+      alert("you can't join your own match");
+      return
+    }
+
+  if (matchOpponentId !== "")
     {
       alert("user already has opponent");
       return

@@ -4,6 +4,7 @@ const app = require('../app.js');
 
 const getMatchesSuccess = (data) => {
   app.matches = data.matches;
+  console.log(app.matches)
 
     let matchHistory = "<table><th>Time</th><th>Host</th><th>Opponent</th><th>Add Opponent</th>";
 
@@ -12,7 +13,7 @@ const getMatchesSuccess = (data) => {
         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
         matchHistory = matchHistory + "<td>" + app.matches[i].hostUser + "</td>";
         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
-        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' + data-match-opponent='" + app.matches[i].opponent + "'>Update</button>" + "</td></tr>";
+        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td></tr>";
       }
 
       matchHistory = matchHistory + "</table>";
