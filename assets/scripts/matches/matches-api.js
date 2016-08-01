@@ -67,10 +67,29 @@ const getNonHostedMatches = () => {
   });
 };
 
+const removeOpponentUpdate = function (matchIdToRemove) {
+  return $.ajax(
+    {
+      url: app.host + '/update-remove-opponent/' + matchIdToRemove,
+      method: 'PATCH',
+      headers: {
+       Authorization: 'Token token=' + app.user.token,
+      },
+      data :{
+              "match": {
+                "opponent": "",
+                "opponentID": ""
+                }
+            }
+    }
+  );
+};
+
 module.exports = {
   getAllMatches,
   createMatch,
   opponentUpdateMatch,
   getUserOwnedMatches,
   getNonHostedMatches,
+  removeOpponentUpdate,
 };

@@ -45,12 +45,20 @@ const onGetNonHostedMatches = (event) => {
   .done(ui.getNonHostedMatchesSuccess)
 };
 
+const onRemoveOpponentUpdate = (event) => {
+  event.preventDefault();
+  let matchIdToRemove = $(event.target).data("match-id-remove");
+  api.removeOpponentUpdate(matchIdToRemove)
+  .done(console.log("this is onRemoveOpponentUpdate"))
+};
+
 const addHandlers = () => {
   $(document).ready(onGetAllMatches);
-  $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   $('#create-match').on('submit', onCreateMatch);
+  $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
   $('#get-non-hosted-matches').on('submit', onGetNonHostedMatches);
+  $(document).on('click','.updateRemoveOpponentButtons', onRemoveOpponentUpdate);
 };
 
 

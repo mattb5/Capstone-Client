@@ -45,7 +45,9 @@ const getNonHostedMatchesSuccess = (data) => {
     for (let i = 0; i < app.matches.length; i++)
       {
         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
-        matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td></tr>";
+        matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
+        matchHistory = matchHistory + "<td> <button class='updateRemoveOpponentButtons' data-match-id-remove='" + app.matches[i]._id + "' + data-match-opponent='" + app.matches[i].opponent + "'>Update</button>" + "</td></tr>";
+
       }
 
       matchHistory = matchHistory + "</table>";
