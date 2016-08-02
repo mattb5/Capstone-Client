@@ -24,7 +24,7 @@ const onOpponentUpdateMatch = (event) => {
   event.preventDefault();
 
   let matchOwner = $(event.target).data("match-owner-id");
-  // console.log("this is matchOwner:", matchOwner);
+  console.log("this is matchOwner:", matchOwner);
 
   let matchIdToUpdate = $(event.target).data("match-id");
   // console.log("this is matchIdToUpdate,", matchIdToUpdate)
@@ -32,8 +32,8 @@ const onOpponentUpdateMatch = (event) => {
   // if (matchIdToUpdate ===)
   let matchOpponentId = $(event.target).data("match-opponent-id");
   // console.log("this is matt:",  matchOpponentId);
-  console.log("this is the owner ID", app.matches[0]._owner);
-  if (matchOwner === app.matches[0]._owner)
+  console.log("this is the owner ID:", app.user._id);
+  if (matchOwner === app.user._id)
     {
       alert("you can't join your own match");
       return
@@ -65,7 +65,9 @@ const onRemoveOpponentUpdate = (event) => {
   event.preventDefault();
   let matchIdToRemove = $(event.target).data("match-id-remove");
   api.removeOpponentUpdate(matchIdToRemove)
-  .done(console.log("this is onRemoveOpponentUpdate"))
+  .then(api.getNonHostedMatches)
+  .then(ui.getNonHostedMatchesSuccess)
+  .done(onGetAllMatches)
 };
 
 const addHandlers = () => {

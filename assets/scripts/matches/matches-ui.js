@@ -4,7 +4,6 @@ const app = require('../app.js');
 
 const getMatchesSuccess = (data) => {
   app.matches = data.matches;
-  console.log(app.matches)
 
     let matchHistory = "<table><th>Time</th><th>Host</th><th>Opponent</th><th>Add Opponent</th>";
 
