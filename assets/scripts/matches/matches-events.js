@@ -24,24 +24,29 @@ const onOpponentUpdateMatch = (event) => {
   event.preventDefault();
 
   let matchOwner = $(event.target).data("match-owner-id");
-  console.log("this is matchOwner:", matchOwner);
+  // console.log("this is matchOwner:", matchOwner);
 
   let matchIdToUpdate = $(event.target).data("match-id");
   // console.log("this is matchIdToUpdate,", matchIdToUpdate)
 
-  // if (matchIdToUpdate ===)
   let matchOpponentId = $(event.target).data("match-opponent-id");
   // console.log("this is matt:",  matchOpponentId);
-  console.log("this is the owner ID:", app.user._id);
+  // console.log("this is the owner ID:", app.user._id);
   if (matchOwner === app.user._id)
     {
-      alert("you can't join your own match");
+      $('.message').text("You can't join your own match, silly");
+      $(".message").show();
+      setTimeout(function() { $(".message").hide(); }, 3000);
+
+      // alert("you can't join your own match");
       return
     }
-
   if (matchOpponentId !== "")
     {
-      alert("user already has opponent");
+      $('.message').text("User already has opponent, silly");
+      $(".message").show();
+      setTimeout(function() { $(".message").hide(); }, 3000);
+      // alert("user already has opponent");
       return
     }
   let updatedOpponentName = $("#update-opponent-name").val();

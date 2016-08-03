@@ -37,6 +37,9 @@
       <div class="panel-body">
         <p> Match Host:  {{hostUser}} </p>
         <p> Opponent: {{opponent}} </p>
+        <!-- <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" -->
+        <button class='updateButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Update</button>
+        <p class="message"> </p>
       </div>
     </div>
 
