@@ -55,6 +55,15 @@ const onGetUserOwnedMatches = (event) => {
   .done(ui.getUserOwnedMatchesSuccess)
 };
 
+const onDeleteMatch = (event)=> {
+  event.preventDefault();
+  let matchIDtoDelete = $(event.target).data("match-id");
+  api.deleteMatch(matchIDtoDelete)
+  .then(api.getUserOwnedMatches)
+  .then(ui.getUserOwnedMatchesSuccess)
+  .done(onGetAllMatches);
+};
+
 const onGetNonHostedMatches = (event) => {
   event.preventDefault();
   api.getNonHostedMatches()
@@ -70,11 +79,14 @@ const onRemoveOpponentUpdate = (event) => {
   .done(onGetAllMatches)
 };
 
+
+
 const addHandlers = () => {
   $(document).ready(onGetAllMatches);
   $('#create-match').on('submit', onCreateMatch);
   $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
+  $(document).on('click','.deleteButtons', onDeleteMatch);
   $('#get-non-hosted-matches').on('submit', onGetNonHostedMatches);
   $(document).on('click','.updateRemoveOpponentButtons', onRemoveOpponentUpdate);
 };
@@ -83,5 +95,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onGetAllMatches,
+  // onGetAllMatches,
 };

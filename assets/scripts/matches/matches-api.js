@@ -10,15 +10,15 @@ const getAllMatches = () => {
   });
 };
 
-const getUserOwnedMatches = () => {
-  return $.ajax({
-    url: app.host + '/owner_matches/' + app.user._id,
-    headers: {
-     Authorization: 'Token token=' + app.user.token,
-   },
-    method: "GET",
-  });
-};
+// const getUserOwnedMatches = () => {
+//   return $.ajax({
+//     url: app.host + '/owner_matches/' + app.user._id,
+//     headers: {
+//      Authorization: 'Token token=' + app.user.token,
+//    },
+//     method: "GET",
+//   });
+// };
 
 
 const createMatch = function (time, hostUser) {
@@ -57,6 +57,29 @@ const opponentUpdateMatch = function (matchIdToUpdate, updatedOpponentName) {
   );
 };
 
+const getUserOwnedMatches = () => {
+  return $.ajax({
+    url: app.host + '/owner_matches/' + app.user._id,
+    headers: {
+     Authorization: 'Token token=' + app.user.token,
+   },
+    method: "GET",
+  });
+};
+
+
+const deleteMatch = function (matchIDtoDelete) {
+  return $.ajax(
+  {
+    url: app.host + '/matches/' + matchIDtoDelete,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  }
+  );
+};
+
 const getNonHostedMatches = () => {
   return $.ajax({
     url: app.host + '/opponent_matches/' + app.user._id,
@@ -90,6 +113,7 @@ module.exports = {
   createMatch,
   opponentUpdateMatch,
   getUserOwnedMatches,
+  deleteMatch,
   getNonHostedMatches,
   removeOpponentUpdate,
 };
