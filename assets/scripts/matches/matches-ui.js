@@ -30,7 +30,7 @@ const getUserOwnedMatchesSuccess = (data) => {
       {
         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
-        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td>";
+        matchHistory = matchHistory + "<td> <button class='updateMatchTimeButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td>";
         matchHistory = matchHistory + "<td> <button class='deleteButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Delete</button>" + "</td></tr>";
       }
 

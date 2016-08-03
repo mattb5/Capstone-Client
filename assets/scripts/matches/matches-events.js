@@ -55,6 +55,16 @@ const onGetUserOwnedMatches = (event) => {
   .done(ui.getUserOwnedMatchesSuccess)
 };
 
+const onUpdateMatchTime = (event) => {
+  event.preventDefault();
+  let matchIDtoUpdate = $(event.target).data("match-id");
+    let updatedMatchTime  = $("#update-match-time").val();
+  api.updateMatchTime(matchIDtoUpdate, updatedMatchTime)
+  .then(api.getUserOwnedMatches)
+  .then(ui.getUserOwnedMatchesSuccess)
+  .done(onGetAllMatches);
+};
+
 const onDeleteMatch = (event)=> {
   event.preventDefault();
   let matchIDtoDelete = $(event.target).data("match-id");
@@ -67,7 +77,9 @@ const onDeleteMatch = (event)=> {
 const onGetNonHostedMatches = (event) => {
   event.preventDefault();
   api.getNonHostedMatches()
-  .done(ui.getNonHostedMatchesSuccess)
+  .then(ui.getNonHostedMatchesSuccess)
+  .done(onGetAllMatches)
+
 };
 
 const onRemoveOpponentUpdate = (event) => {
@@ -86,6 +98,7 @@ const addHandlers = () => {
   $('#create-match').on('submit', onCreateMatch);
   $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
+  $(document).on('click','.updateMatchTimeButtons', onUpdateMatchTime);
   $(document).on('click','.deleteButtons', onDeleteMatch);
   $('#get-non-hosted-matches').on('submit', onGetNonHostedMatches);
   $(document).on('click','.updateRemoveOpponentButtons', onRemoveOpponentUpdate);
@@ -95,5 +108,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  // onGetAllMatches,
 };
