@@ -2,23 +2,29 @@
 
 const app = require('../app.js');
 
-const getMatchesSuccess = (data) => {
-  app.matches = data.matches;
-
-    let matchHistory = "<table><th>Time</th><th>Host</th><th>Opponent</th><th>Add Opponent</th>";
-
-    for (let i = 0; i < app.matches.length; i++)
-      {
-        matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
-        matchHistory = matchHistory + "<td>" + app.matches[i].hostUser + "</td>";
-        matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
-        matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td></tr>";
-      }
-
-      matchHistory = matchHistory + "</table>";
-
-      $("#matches").html(matchHistory);
+const getMatchesSuccess = (matches) => {
+  $('#matches').html('');
+  console.log("this is get matches success in ui");
+  console.log(matches);
+  let displayAllMatches = require ('../templates/display-all-matches.handlebars');
+  $('#matches').prepend(displayAllMatches(matches));
 };
+// const getMatchesSuccess = (data) => {
+//   app.matches = data.matches;
+//     let matchHistory = "<table><th>Time</th><th>Host</th><th>Opponent</th><th>Add Opponent</th>";
+//
+//     for (let i = 0; i < app.matches.length; i++)
+//       {
+//         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
+//         matchHistory = matchHistory + "<td>" + app.matches[i].hostUser + "</td>";
+//         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
+//         matchHistory = matchHistory + "<td> <button class='updateButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td></tr>";
+//       }
+//
+//       matchHistory = matchHistory + "</table>";
+//
+//       $("#matches").html(matchHistory);
+// };
 
 
 const getUserOwnedMatchesSuccess = (data) => {

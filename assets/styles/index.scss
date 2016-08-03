@@ -1,2 +1,12 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.handlebars-matches {
+  text-align: center;
+  // max-width: 0 auto;
+  // width: 300px;
+  margin: auto;
+  width: 50%;
+
+  // width: 40%;
+}

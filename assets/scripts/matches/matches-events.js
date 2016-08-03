@@ -7,7 +7,7 @@ const ui = require('./matches-ui.js');
 const app = require('../app.js');
 
 const onGetAllMatches = function () {
-  console.log("this is get all matches");
+
   api.getAllMatches()
   .done(ui.getMatchesSuccess)
 };
