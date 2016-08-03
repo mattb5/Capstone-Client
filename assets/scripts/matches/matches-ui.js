@@ -26,42 +26,55 @@ const getMatchesSuccess = (matches) => {
 //       $("#matches").html(matchHistory);
 // };
 
-
-const getUserOwnedMatchesSuccess = (data) => {
-  app.matches = data.matches;
-
-    let matchHistory = "<table>";
-
-    for (let i = 0; i < app.matches.length; i++)
-      {
-        matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
-        matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
-        matchHistory = matchHistory + "<td> <button class='updateMatchTimeButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td>";
-        matchHistory = matchHistory + "<td> <button class='deleteButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Delete</button>" + "</td></tr>";
-      }
-
-      matchHistory = matchHistory + "</table>";
-
-      $("#user-owned-matches").html(matchHistory);
+const getUserOwnedMatchesSuccess = (matches) => {
+  $('#user-owned-matches').html('');
+  // console.log("this is get matches success in ui");
+  // console.log(matches);
+  let displayUserOwnedMatches = require ('../templates/display-user-owned-matches.handlebars');
+  $('#user-owned-matches').prepend(displayUserOwnedMatches(matches));
 };
 
-const getNonHostedMatchesSuccess = (data) => {
-  app.matches = data.matches;
+// const getUserOwnedMatchesSuccess = (data) => {
+//   app.matches = data.matches;
+//
+//     let matchHistory = "<table>";
+//
+//     for (let i = 0; i < app.matches.length; i++)
+//       {
+//         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
+//         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
+//         matchHistory = matchHistory + "<td> <button class='updateMatchTimeButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Update</button>" + "</td>";
+//         matchHistory = matchHistory + "<td> <button class='deleteButtons' data-match-id='" + app.matches[i]._id + "' data-match-opponent-id='" + app.matches[i].opponent + "' data-match-owner-id='" + app.matches[i]._owner + "'>Delete</button>" + "</td></tr>";
+//       }
+//
+//       matchHistory = matchHistory + "</table>";
+//
+//       $("#user-owned-matches").html(matchHistory);
+// };
 
-    let matchHistory = "<table>";
-
-    for (let i = 0; i < app.matches.length; i++)
-      {
-        matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
-        matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
-        matchHistory = matchHistory + "<td> <button class='updateRemoveOpponentButtons' data-match-id-remove='" + app.matches[i]._id + "' + data-match-opponent='" + app.matches[i].opponent + "'>Update</button>" + "</td></tr>";
-
-      }
-
-      matchHistory = matchHistory + "</table>";
-
-      $("#non-hosted-matches").html(matchHistory);
+const getNonHostedMatchesSuccess = (matches) => {
+  $('#non-hosted-matches').html('');
+  let displayNonHostedMatches = require ('../templates/display-non-hosted-matches.handlebars');
+  $('#non-hosted-matches').prepend(displayNonHostedMatches(matches));
 };
+//
+// const getNonHostedMatchesSuccess = (data) => {
+//   app.matches = data.matches;
+//
+//     let matchHistory = "<table>";
+//
+//     for (let i = 0; i < app.matches.length; i++)
+//       {
+//         matchHistory = matchHistory + "<tr><td>" + app.matches[i].time + "</td>";
+//         matchHistory = matchHistory + "<td>" + app.matches[i].opponent + "</td>";
+//         matchHistory = matchHistory + "<td> <button class='updateRemoveOpponentButtons' data-match-id-remove='" + app.matches[i]._id + "' + data-match-opponent='" + app.matches[i].opponent + "'>Update</button>" + "</td></tr>";
+//
+//       }
+//
+//       matchHistory = matchHistory + "</table>";
+//
+//       $("#non-hosted-matches").html(matchHistory);
+// };
 
 
 // with delete column
