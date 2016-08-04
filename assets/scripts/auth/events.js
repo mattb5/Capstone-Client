@@ -4,7 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
-
+const matchEvent = require('../matches/matches-events')
 
 const onSignUp = function (event){
   event.preventDefault();
@@ -19,6 +19,7 @@ const onSignIn = function (event){
   let data = getFormFields(event.target);
   api.signIn(data)
   .done(ui.signInSuccess)
+  .then(matchEvent.onGetAllMatches)
   .fail(ui.failure);
 };
 

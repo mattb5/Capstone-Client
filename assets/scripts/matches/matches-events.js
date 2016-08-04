@@ -124,4 +124,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  onGetAllMatches,
 };

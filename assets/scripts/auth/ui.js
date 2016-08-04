@@ -26,7 +26,7 @@ const failure = (error) => {
 const signInSuccess = function (data){
 app.user = data.user;
 // console.log(data);
-$('#all-matches').show();
+// $('#all-matches').show();
 };
 
 const signOutSuccess = function (){
