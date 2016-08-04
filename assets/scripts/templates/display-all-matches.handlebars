@@ -18,12 +18,20 @@
         <p> Opponent: {{opponent}} </p>
         <!-- <form id="patch-match">
           <fieldset>
-            <! <legend>Update Match Opponent </legend> -->
-            <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
+           <legend>Update Match Opponent </legend>
+            <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
           </fieldset>
-        </form>  -->
+        </form> -->
+        <form id="patch-match">
+          <fieldset>
+            <legend>Update Match Opponent </legend>
+             <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name"> -->
+            <input type ="text" class="update-opponent-name" placeholder="Opponent Name">
+            <input type="submit" name="submit" value="Update Opponent!" class='updateButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>
+          </fieldset>
+        </form>
         <br></br>
-        <button class='updateButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Update</button>
+        <!-- <button class='updateButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Update</button> -->
         <p class="message"> </p>
       </div>
 

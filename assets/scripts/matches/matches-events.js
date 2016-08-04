@@ -37,19 +37,20 @@ const onOpponentUpdateMatch = (event) => {
       $('.message').text("You can't join your own match, silly");
       $(".message").show();
       setTimeout(function() { $(".message").hide(); }, 3000);
-
-      // alert("you can't join your own match");
       return
     }
   if (matchOpponentId !== "")
     {
       $('.message').text("User already has opponent, silly");
+      // $(event.target).parent().parent().siblings('.message').text("User already has opponent, silly");
       $(".message").show();
       setTimeout(function() { $(".message").hide(); }, 3000);
-      // alert("user already has opponent");
       return
     }
-  let updatedOpponentName = $("#update-opponent-name").val();
+  // let updatedOpponentName = $("#update-opponent-name").val();
+  // let updatedOpponentName = $(this).siblings('input').val();
+  let updatedOpponentName = $(event.target).siblings('input').val();
+  console.log(updatedOpponentName);
   api.opponentUpdateMatch(matchIdToUpdate, updatedOpponentName)
   .done(onGetAllMatches)
 };
@@ -101,6 +102,8 @@ const onRemoveOpponentUpdate = (event) => {
 const addHandlers = () => {
   $(document).ready(onGetAllMatches);
   $('#create-match').on('submit', onCreateMatch);
+  // $(document).on('click','.updateButtons', onOpponentUpdateMatch);
+  //this event handler below is the one i added
   $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
   $(document).on('click','.updateMatchTimeButtons', onUpdateMatchTime);
