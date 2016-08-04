@@ -3,14 +3,14 @@
 const app = require('../app.js');
 //the data below is the password
 const success = (data) => {
-if(data)
- {
-  console.log(data);
- }
- else
- {
-  console.log("Changed password successfully");
- }
+// if(data)
+//  {
+//   console.log(data);
+//  }
+//  else
+//  {
+//   console.log("Changed password successfully");
+//  }
 };
 
 
@@ -25,13 +25,13 @@ const failure = (error) => {
 
 const signInSuccess = function (data){
 app.user = data.user;
-console.log(data);
+// console.log(data);
 $('#all-matches').show();
 };
 
 const signOutSuccess = function (){
   app.user = null;
-  console.log(app);
+  // console.log(app);
 };
 
 module.exports = {

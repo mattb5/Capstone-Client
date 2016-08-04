@@ -15,7 +15,6 @@ const onSignUp = function (event){
 };
 
 const onSignIn = function (event){
-  console.log('shit');
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signIn(data)
@@ -42,7 +41,6 @@ const onChangePassword = function(event){
 
 
 const addHandlers = () => {
-  // $('#all-matches').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);

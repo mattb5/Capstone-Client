@@ -4,8 +4,6 @@ const app = require('../app.js');
 
 const getMatchesSuccess = (matches) => {
   $('#matches').html('');
-  console.log("this is get matches success in ui");
-  console.log(matches);
   let displayAllMatches = require ('../templates/display-all-matches.handlebars');
   $('#matches').prepend(displayAllMatches(matches));
   $('#user-hosted-matches').hide();
