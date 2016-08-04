@@ -48,9 +48,7 @@ const onOpponentUpdateMatch = (event) => {
       return
     }
   // let updatedOpponentName = $("#update-opponent-name").val();
-  // let updatedOpponentName = $(this).siblings('input').val();
   let updatedOpponentName = $(event.target).siblings('input').val();
-  console.log(updatedOpponentName);
   api.opponentUpdateMatch(matchIdToUpdate, updatedOpponentName)
   .done(onGetAllMatches)
 };
@@ -64,7 +62,8 @@ const onGetUserOwnedMatches = (event) => {
 const onUpdateMatchTime = (event) => {
   event.preventDefault();
   let matchIDtoUpdate = $(event.target).data("match-id");
-    let updatedMatchTime  = $("#update-match-time").val();
+    // let updatedMatchTime  = $("#update-match-time").val();
+  let updatedMatchTime = $(event.target).siblings('input').val();
   api.updateMatchTime(matchIDtoUpdate, updatedMatchTime)
   .then(api.getUserOwnedMatches)
   .then(ui.getUserOwnedMatchesSuccess)

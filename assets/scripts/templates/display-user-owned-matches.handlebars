@@ -16,14 +16,16 @@
       <div class="panel-body">
         <p> Match Host:  {{hostUser}} </p>
         <p> Opponent: {{opponent}} </p>
-        <!-- <form id="patch-match">
+        <form id="patch-match-time">
           <fieldset>
-            <! <legend>Update Match Opponent </legend> -->
-            <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
+            <legend>Update Match Time </legend>
+            <!-- <input type ="text" id="update-match-time" placeholder="Update Match Time"> -->
+            <input type ="text" class="update-match-time" placeholder="Update Match Time">
+            <input type="submit" name="submit" value="Update Opponent!" class='updateMatchTimeButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>
           </fieldset>
-        </form>  -->
+        </form>
         <br></br>
-        <button class='updateMatchTimeButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Update</button>
+        <!-- <button class='updateMatchTimeButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Update</button> -->
         <button class='deleteButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>Delete Match</button>
       </div>
 
