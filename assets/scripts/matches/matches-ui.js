@@ -8,6 +8,9 @@ const getMatchesSuccess = (matches) => {
   console.log(matches);
   let displayAllMatches = require ('../templates/display-all-matches.handlebars');
   $('#matches').prepend(displayAllMatches(matches));
+  $('#user-hosted-matches').hide();
+  $('#opponent-matches').hide();
+  $('#all-matches').show();
 };
 // const getMatchesSuccess = (data) => {
 //   app.matches = data.matches;
@@ -32,6 +35,9 @@ const getUserOwnedMatchesSuccess = (matches) => {
   // console.log(matches);
   let displayUserOwnedMatches = require ('../templates/display-user-owned-matches.handlebars');
   $('#user-owned-matches').prepend(displayUserOwnedMatches(matches));
+  $('#all-matches').hide();
+  $('#opponent-matches').hide();
+  $('#user-hosted-matches').show();
 };
 
 // const getUserOwnedMatchesSuccess = (data) => {
@@ -56,6 +62,9 @@ const getNonHostedMatchesSuccess = (matches) => {
   $('#non-hosted-matches').html('');
   let displayNonHostedMatches = require ('../templates/display-non-hosted-matches.handlebars');
   $('#non-hosted-matches').prepend(displayNonHostedMatches(matches));
+  $('#all-matches').hide();
+  $('#user-hosted-matches').hide();
+  $('#opponent-matches').show();
 };
 //
 // const getNonHostedMatchesSuccess = (data) => {

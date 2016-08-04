@@ -7,7 +7,12 @@ const ui = require('./matches-ui.js');
 const app = require('../app.js');
 
 const onGetAllMatches = function () {
+  api.getAllMatches()
+  .done(ui.getMatchesSuccess)
+};
 
+const onButtonGetAllMatches = (event) => {
+  event.preventDefault();
   api.getAllMatches()
   .done(ui.getMatchesSuccess)
 };
@@ -66,8 +71,8 @@ const onUpdateMatchTime = (event) => {
   let updatedMatchTime = $(event.target).siblings('input').val();
   api.updateMatchTime(matchIDtoUpdate, updatedMatchTime)
   .then(api.getUserOwnedMatches)
-  .then(ui.getUserOwnedMatchesSuccess)
-  .done(onGetAllMatches);
+  .done(ui.getUserOwnedMatchesSuccess);
+  // .done(onGetAllMatches);
 };
 
 const onDeleteMatch = (event)=> {
@@ -75,15 +80,15 @@ const onDeleteMatch = (event)=> {
   let matchIDtoDelete = $(event.target).data("match-id");
   api.deleteMatch(matchIDtoDelete)
   .then(api.getUserOwnedMatches)
-  .then(ui.getUserOwnedMatchesSuccess)
-  .done(onGetAllMatches);
+  .done(ui.getUserOwnedMatchesSuccess);
+  // .done(onGetAllMatches);
 };
 
 const onGetNonHostedMatches = (event) => {
   event.preventDefault();
   api.getNonHostedMatches()
-  .then(ui.getNonHostedMatchesSuccess)
-  .done(onGetAllMatches)
+  .done(ui.getNonHostedMatchesSuccess);
+  // .done(onGetAllMatches);
 
 };
 
@@ -92,22 +97,26 @@ const onRemoveOpponentUpdate = (event) => {
   let matchIdToRemove = $(event.target).data("match-id-remove");
   api.removeOpponentUpdate(matchIdToRemove)
   .then(api.getNonHostedMatches)
-  .then(ui.getNonHostedMatchesSuccess)
-  .done(onGetAllMatches)
+  .done(ui.getNonHostedMatchesSuccess);
+  // .done(onGetAllMatches);
 };
 
 
 
 const addHandlers = () => {
   $(document).ready(onGetAllMatches);
+  // $('#get-all-matches').on('submit', onButtonGetAllMatches);
+  $('#get-all-matches').on('click', onButtonGetAllMatches);
   $('#create-match').on('submit', onCreateMatch);
   // $(document).on('click','.updateButtons', onOpponentUpdateMatch);
   //this event handler below is the one i added
   $(document).on('click','.updateButtons', onOpponentUpdateMatch);
-  $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
+  // $('#get-user-owned-matches').on('submit', onGetUserOwnedMatches);
+  $('#get-user-owned-matches').on('click', onGetUserOwnedMatches);
   $(document).on('click','.updateMatchTimeButtons', onUpdateMatchTime);
   $(document).on('click','.deleteButtons', onDeleteMatch);
-  $('#get-non-hosted-matches').on('submit', onGetNonHostedMatches);
+  // $('#get-non-hosted-matches').on('submit', onGetNonHostedMatches);
+  $('#get-non-hosted-matches').on('click', onGetNonHostedMatches);
   $(document).on('click','.updateRemoveOpponentButtons', onRemoveOpponentUpdate);
 };
 

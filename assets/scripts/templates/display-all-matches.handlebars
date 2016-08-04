@@ -3,24 +3,25 @@
   {{#if opponent}}
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Match Time: {{time}}</h3>
+        <h2 class="panel-title">Match Time: {{time}}</h2>
       </div>
 
   {{else}}
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title">Match Time: {{time}}</h3>
+        <h2 class="panel-title">Match Time: {{time}}</h2>
       </div>
   {{/if}}
 
       <div class="panel-body">
-        <p> Match Host:  {{hostUser}} </p>
-        <p> Opponent: {{opponent}} </p>
+        <h5> Match Host:  {{hostUser}} </h5>
+        <h5> Opponent: {{opponent}} </h5>
         <form id="patch-match">
           <fieldset>
-            <legend>Update Match Opponent </legend>
+            <legend class="template">Update Match Opponent </legend>
              <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name"> -->
             <input type ="text" class="update-opponent-name" placeholder="Opponent Name">
+            <br></br>
             <input type="submit" name="submit" value="Update Opponent!" class='updateButtons' data-match-id='{{_id}}' data-match-opponent-id='{{opponent}}' data-match-owner-id='{{_owner}}'>
           </fieldset>
         </form>

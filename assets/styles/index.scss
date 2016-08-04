@@ -1,10 +1,37 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body{
+  margin: 10px auto;
+  max-width: 75%;
+  border: 1px solid black;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #4CAF50;
+  padding: 12px;
+  border: 1px solid black;
+  color: #FFFFFF;
+}
+
+.template {
+  font-size: .9em;
+}
+
 .handlebars-matches {
   text-align: center;
-  // max-width: 0 auto;
-  // width: 300px;
   margin: auto;
   width: 50%;
+}
+
+.userButtons {
+  float: right;
+}
+
+#actionButtons{
+  margin: auto;
 }
