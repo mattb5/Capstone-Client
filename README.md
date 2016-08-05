@@ -3,7 +3,7 @@ Tennis Matchr
 
 Embedded screenshot of Tennis Matchr:
 
-![Tennis Matchr Screen Shot](http://imgur.com/4YWEIbQ)
+![Tennis Matchr Screen Shot](http://i.imgur.com/4YWEIbQ.png)
 
 Link to screenshot of Tennis Matchr:
 
